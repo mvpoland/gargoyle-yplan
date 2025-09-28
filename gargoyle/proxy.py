@@ -1,7 +1,4 @@
-from __future__ import absolute_import, division, print_function, unicode_literals
-
-
-class SwitchProxy(object):
+class SwitchProxy:
     def __init__(self, manager, switch):
         self._switch = switch
         self._manager = manager
@@ -13,7 +10,7 @@ class SwitchProxy(object):
             return getattr(self._switch, attr)
 
     def __setattr__(self, attr, value):
-        if attr in ('_switch', '_manager'):
+        if attr in ("_switch", "_manager"):
             object.__setattr__(self, attr, value)
         else:
             setattr(self._switch, attr, value)
