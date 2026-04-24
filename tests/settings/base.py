@@ -66,6 +66,8 @@ TEMPLATES = [
 
 STATIC_URL = "/static/"
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 GARGOYLE_SWITCH_DEFAULTS = {
     "active_by_default": {
         "is_active": True,
