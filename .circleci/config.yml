@@ -1,0 +1,21 @@
+version: 2.1
+
+jobs:
+  build_and_test:
+    docker:
+      - image: cimg/python:3.9
+    steps:
+      - checkout
+      - run:
+          name: install dependencies
+          command: |
+            pip install .
+            pip install -r requirements.txt
+      - run:
+          name: run tests
+          command: python runtests.py
+
+workflows:
+  test:
+    jobs:
+      - build_and_test
