@@ -1,5 +1,4 @@
 import django.utils.timezone
-import jsonfield.fields
 from django.db import migrations, models
 
 
@@ -15,7 +14,7 @@ class Migration(migrations.Migration):
                     "key",
                     models.CharField(primary_key=True, serialize=False, max_length=64),
                 ),
-                ("value", jsonfield.fields.JSONField()),
+                ("value", models.JSONField(default=dict)),
                 ("label", models.CharField(max_length=64, null=True)),
                 (
                     "date_created",

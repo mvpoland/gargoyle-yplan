@@ -10,12 +10,9 @@ from django.utils.module_loading import autodiscover_modules
 
 from gargoyle.manager import gargoyle
 
-__version__ = "3.0.0"
-VERSION = __version__  # old version compat
+__version__ = '3.1.0a0'
 
-__all__ = ("gargoyle", "autodiscover", "__version__", "VERSION")
-
-default_app_config = "gargoyle.apps.GargoyleAppConfig"
+__all__ = ('gargoyle', 'autodiscover', '__version__')
 
 
 def autodiscover():

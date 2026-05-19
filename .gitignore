@@ -50,4 +50,4 @@ docs/_build
 tests/dev-database.sqlite3
 
 # PyCharm
-.idea
+.idea/
