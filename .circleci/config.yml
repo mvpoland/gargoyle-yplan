@@ -1,11 +1,26 @@
 version: 2.1
 
+orbs:
+  aws-cli: circleci/aws-cli@4.0
+
+commands:
+  codeartifact_login:
+    description: Authenticate pip with AWS CodeArtifact
+    steps:
+      - aws-cli/setup
+      - run:
+          name: Configure pip for CodeArtifact
+          command: |
+            pip3 config set global.extra-index-url https://pypi.python.org/simple/
+            aws codeartifact login --tool pip --repository prod --domain mvpl --domain-owner 341238778357 --region eu-central-1
+
 jobs:
   build_and_test:
     docker:
       - image: cimg/python:3.9
     steps:
       - checkout
+      - codeartifact_login
       - run:
           name: install dependencies
           command: |
@@ -18,4 +33,5 @@ jobs:
 workflows:
   test:
     jobs:
-      - build_and_test
+      - build_and_test:
+          context: org-global

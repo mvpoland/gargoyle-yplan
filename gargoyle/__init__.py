@@ -10,7 +10,7 @@ from django.utils.module_loading import autodiscover_modules
 
 from gargoyle.manager import gargoyle
 
-__version__ = '3.1.0a0'
+__version__ = '3.1.0'
 
 __all__ = ('gargoyle', 'autodiscover', '__version__')
 
